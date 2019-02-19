@@ -3,7 +3,13 @@ web:
   hostname: '${external_url}'
   environment:
     GITLAB_OMNIBUS_CONFIG: |
-      external_url 'http://${external_url}'
+      external_url 'https://${external_url}'
+      registry_external_url 'https://${external_url}:4567'
+      letsencrypt['auto_renew_hour'] = "12"
+      letsencrypt['auto_renew_minute'] = "30"
+      letsencrypt['auto_renew_day_of_month'] = "*/7"
+      letsencrypt['contact_emails'] = ['admin@rubius.com'] 
+      letsencrypt['enable'] = true
   ports:
     - '80:80'
     - '443:443'
