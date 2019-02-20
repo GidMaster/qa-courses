@@ -1,15 +1,19 @@
 web:
   image: 'gitlab/gitlab-ce:latest'
-  hostname: '${external_url}'
+  hostname: 'qa-course-ci.rubius.com'
   environment:
     GITLAB_OMNIBUS_CONFIG: |
-      external_url 'https://${external_url}'
-      registry_external_url 'https://${external_url}:4567'
-      letsencrypt['auto_renew_hour'] = "12"
-      letsencrypt['auto_renew_minute'] = "30"
-      letsencrypt['auto_renew_day_of_month'] = "*/7"
-      letsencrypt['contact_emails'] = ['admin@rubius.com'] 
-      letsencrypt['enable'] = true
+      # letsencrypt['enable'] = true
+      external_url 'http://45.55.56.23'
+      # registry_external_url 'https://${external_url}:4567'
+      # letsencrypt['auto_renew_hour'] = "12"
+      # letsencrypt['auto_renew_minute'] = "30"
+      # letsencrypt['auto_renew_day_of_month'] = "*/7"
+      # letsencrypt['contact_emails'] = ['admin@rubius.com']
+      # nginx['redirect_http_to_https'] = true
+      # nginx['redirect_http_to_https_port'] = 80
+      # nginx['ssl_certificate'] = "/etc/gitlab/ssl/qa-course-ci.rubius.com.crt"
+      # nginx['ssl_certificate_key'] = "/etc/gitlab/ssl/qa-course-ci.rubius.com.key"
   ports:
     - '80:80'
     - '443:443'
