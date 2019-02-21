@@ -5,6 +5,7 @@ web:
     GITLAB_OMNIBUS_CONFIG: |
       # letsencrypt['enable'] = true
       external_url 'http://45.55.56.23'
+      gitaly['concurrent'] = 3
       # registry_external_url 'https://${external_url}:4567'
       # letsencrypt['auto_renew_hour'] = "12"
       # letsencrypt['auto_renew_minute'] = "30"
